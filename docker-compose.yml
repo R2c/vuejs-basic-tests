@@ -1,0 +1,13 @@
+
+version: '2'
+
+services:
+    node:
+        image: node:9.11-alpine
+        volumes:
+           - .:/var/www
+           # Allows NPM usage with the Docker "root" user:
+           - ./docker/node/shared/.npmrc:/root/.npmrc
+        working_dir: /var/www/
+        ports:
+            - 8080:8080

@@ -1,0 +1,87 @@
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(#FFF, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .lightbox-content {
+        display: table-cell;
+    }
+
+    .lightbox-close {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 5;
+        cursor: pointer;
+        transition: transform .2s;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+
+
+    .lightbox-pagination {
+        i {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            z-index: 5;
+            &.prev {
+                left: 10px;
+            }
+            &.next {
+                right: 10px;
+            }
+        }
+    }
+
+    .lightbox-image {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .lightbox-loading {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 5;
+    }
+
+    .lightbox-fade-enter-active, .lightbox-fade-leave-active {
+        transition: opacity 0.5s;
+    }
+    .lightbox-fade-enter, .lightbox-fade-leave {
+        opacity: 0;
+    }
+
+    .lightbox-enter-left-enter-active,
+    .lightbox-enter-left-leave-active,
+    .lightbox-enter-right-enter-active,
+    .lightbox-enter-right-leave-active {
+        opacity: 1;
+        transition: transform .5s, opacity .5s;
+    }
+
+    .lightbox-enter-left-leave-active,
+    .lightbox-enter-right-enter {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+
+    .lightbox-enter-left-enter,
+    .lightbox-enter-right-leave-active {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+}
